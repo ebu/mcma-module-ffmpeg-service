@@ -5,16 +5,18 @@ using System.Threading.Tasks;
 using Mcma.Serialization;
 using Mcma.Storage;
 using Mcma.Worker;
+using Microsoft.Extensions.Options;
 
 namespace Mcma.Modules.FFmpegService.Worker
 {
     public class ExtractThumbnail : IJobProfile<TransformJob>
     {
-        public ExtractThumbnail(IStorageClient storageClient, IFFmpegProcess ffmpegProcess, IHttpClientFactory httpClientFactory)
+        public ExtractThumbnail(IStorageClient storageClient, IFFmpegProcess ffmpegProcess, IHttpClientFactory httpClientFactory, IOptions<ExtractThumbnailOptions> options)
         {
             StorageClient = storageClient ?? throw new ArgumentNullException(nameof(storageClient));
             FFmpegProcess = ffmpegProcess ?? throw new ArgumentNullException(nameof(ffmpegProcess));
             HttpClient = httpClientFactory?.CreateClient() ?? throw new ArgumentNullException(nameof(httpClientFactory));
+            Options = options.Value ?? new ExtractThumbnailOptions();
         }
 
         private IStorageClient StorageClient { get; }
@@ -22,6 +24,8 @@ namespace Mcma.Modules.FFmpegService.Worker
         private IFFmpegProcess FFmpegProcess { get; }
 
         private HttpClient HttpClient { get; }
+        
+        private ExtractThumbnailOptions Options { get; }
 
         public string Name => nameof(ExtractThumbnail);
 
@@ -35,15 +39,16 @@ namespace Mcma.Modules.FFmpegService.Worker
         public async Task ExecuteAsync(ProcessJobAssignmentHelper<TransformJob> jobAssignmentHelper, McmaWorkerRequestContext requestContext)
         {
             var logger = jobAssignmentHelper.RequestContext.Logger;
-            var options = jobAssignmentHelper.Profile.CustomProperties?.ToMcmaObject<ExtractThumbnailOptions>() ?? new ExtractThumbnailOptions();
             
             Locator inputFile;
             if (!jobAssignmentHelper.JobInput.TryGet(nameof(inputFile), out inputFile))
                 throw new Exception("Invalid or missing input file.");
 
             var tempId = Guid.NewGuid().ToString();
-            var tempVideoFile = "/tmp/video_" + tempId + ".mp4";
-            var tempThumbFile = "/tmp/thumb_" + tempId + ".png";
+            var tempFolder = Path.Combine(Options.TempOutputFolder, tempId);
+            var tempVideoFile = Path.Combine(tempFolder, Path.GetFileName(inputFile.Url));
+            var outputFileName = Path.GetFileNameWithoutExtension(inputFile.Url) + ".png";
+            var tempThumbFile = Path.Combine(tempFolder, outputFileName);
 
             try
             {
@@ -58,6 +63,8 @@ namespace Mcma.Modules.FFmpegService.Worker
                     "file" => File.OpenRead(inputUrl.LocalPath),
                     var x => throw new McmaException($"FFmpeg service does not currently support the {x} scheme for input files")
                 };
+
+                Directory.CreateDirectory(tempFolder);
 
                 using (var tempVideoFileStream = File.Create(tempVideoFile))
                 using (source)
@@ -74,7 +81,7 @@ namespace Mcma.Modules.FFmpegService.Worker
                     "scale=200:-1",
                     tempThumbFile);
 
-                var outputUrl = $"{options.OutputLocation.TrimEnd('/')}/{jobAssignmentHelper.Job.Id}/{tempId}.png";
+                var outputUrl = $"{Options.OutputLocation.TrimEnd('/')}/{tempId}/{outputFileName}";
 
                 using (var tempThumbFileStream = File.OpenRead(tempThumbFile))
                     await StorageClient.UploadAsync(outputUrl, tempThumbFileStream);

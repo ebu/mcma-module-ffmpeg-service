@@ -6,9 +6,9 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Mcma.Core" Version="0.14.0-rc32" />
-      <PackageReference Include="Mcma.Storage" Version="0.14.0-rc32" />
-      <PackageReference Include="Mcma.Worker" Version="0.14.0-rc32" />
+      <PackageReference Include="Mcma.Core" Version="0.14.0" />
+      <PackageReference Include="Mcma.Storage" Version="0.14.0" />
+      <PackageReference Include="Mcma.Worker" Version="0.14.0" />
     </ItemGroup>
 
 </Project>

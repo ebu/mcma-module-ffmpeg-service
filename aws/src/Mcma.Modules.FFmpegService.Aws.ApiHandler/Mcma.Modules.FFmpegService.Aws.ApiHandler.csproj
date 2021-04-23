@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Mcma.Aws.Functions.ApiHandler" Version="0.14.0-rc32" />
+        <PackageReference Include="Mcma.Aws.Functions.ApiHandler" Version="0.14.0" />
     </ItemGroup>
 
 </Project>

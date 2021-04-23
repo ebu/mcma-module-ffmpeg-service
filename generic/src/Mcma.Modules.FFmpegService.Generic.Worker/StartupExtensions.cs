@@ -33,11 +33,13 @@ namespace Mcma.Modules.FFmpegService.Generic.Worker
                         config.SetDataCompatibilityLevel(CompatibilityLevel.Version_170);
                         config.UseSimpleAssemblyNameTypeSerializer();
                         config.UseRecommendedSerializerSettings();
+                        config.UseFilter(new AutomaticRetryAttribute { Attempts = 0 });
                         config.UseMongoStorage(configuration.GetConnectionString("Hangfire"),
                                                new MongoStorageOptions
                                                {
-                                                   QueuePollInterval = TimeSpan.FromSeconds(1),
-                                                   MigrationOptions = new MongoMigrationOptions { MigrationStrategy = new DropMongoMigrationStrategy() }
+                                                   QueuePollInterval = mcmaConfig.GetValue("QueuePollInterval", TimeSpan.FromSeconds(3)),
+                                                   MigrationOptions = new MongoMigrationOptions { MigrationStrategy = new DropMongoMigrationStrategy() },
+                                                   UseNotificationsCollection = false
                                                });
                     })
                     .AddHangfireServer(opts => opts.Queues = new[] { mcmaConfig["ServiceName"] });
@@ -47,9 +49,12 @@ namespace Mcma.Modules.FFmpegService.Generic.Worker
                            .AddMcmaClient(builder => builder.ConfigureDefaults(mcmaConfig["ServicesUrl"]))
                            .AddMcmaLocalFileSystemStorageClient()
                            .AddFFmpeg(@"C:\Program Files\ffmpeg\bin\ffmpeg.exe")
-                           .AddMcmaWorker(builder =>
-                                              builder.AddProcessJobAssignmentOperation<TransformJob>(x =>
-                                                  x.AddProfile<ExtractThumbnail>()));
+                           .AddMcmaWorker(
+                               builder =>
+                                   builder.AddProcessJobAssignmentOperation<TransformJob>(
+                                       x =>
+                                           x.AddProfile<ExtractThumbnail, ExtractThumbnailOptions>(
+                                               opts => mcmaConfig.Bind("Profiles:ExtractThumbnail", opts))));
         }
     }
 }
