@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <LangVersion>default</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Mcma.Azure.Functions.ApiHandler" Version="0.14.0-rc4"/>
+        <PackageReference Include="Microsoft.Azure.Functions.Extensions" Version="1.1.0"/>
+        <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="3.0.9"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Update="host.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
+
+</Project>

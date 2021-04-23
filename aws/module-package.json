@@ -1,0 +1,9 @@
+{
+  "functions": {
+    "api-handler": "src/Mcma.Modules.FFmpegService.Aws.ApiHandler",
+    "worker": "src/Mcma.Modules.FFmpegService.Aws.Worker"
+  },
+  "additionalFiles": [
+    "layers/ffmpeg.zip"  
+  ]
+}

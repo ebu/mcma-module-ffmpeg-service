@@ -1,0 +1,6 @@
+{
+  "functions": {
+    "api-handler": "src/Mcma.Modules.FFmpegService.Azure.ApiHandler",
+    "worker": "src/Mcma.Modules.FFmpegService.Azure.Worker"
+  }
+}

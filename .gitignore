@@ -1,0 +1,8 @@
+bin
+obj
+dist
+.idea
+.terraform
+.publish
+.config
+log*.txt
