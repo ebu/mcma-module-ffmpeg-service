@@ -1,6 +1,17 @@
 {
-  "functions": {
-    "api-handler": "src/Mcma.Modules.FFmpegService.Azure.ApiHandler",
-    "worker": "src/Mcma.Modules.FFmpegService.Azure.Worker"
-  }
+  "files": [
+    "**/*.tf"
+  ],
+  "functions": [
+    {
+      "name": "ApiHandler",
+      "type": "AwsLambdaFunction",
+      "path": "src/Mcma.Modules.FFmpegService.Azure.ApiHandler"
+    },
+    {
+      "name": "Worker",
+      "type": "AwsLambdaFunction",
+      "path": "src/Mcma.Modules.FFmpegService.Azure.Worker"
+    }
+  ]
 }

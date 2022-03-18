@@ -1,0 +1,14 @@
+{
+  "namespace": "ebu",
+  "name": "ffmpeg-service",
+  "version": "0.3.28",
+  "displayName": "FFmpeg Service",
+  "description": "The FFmpeg Service is an MCMA wrapper around FFmpeg",
+  "tags": [
+    "ffmpeg",
+    "transform"
+  ],
+  "icon": "https://raw.githubusercontent.com/ebu/mcma-module-ffmpeg-service-dotnet/development/icon.png",
+  "website": "https://github.com/ebu/mcma-module-ffmpeg-service-dotnet",
+  "repository": "https://github.com/ebu/mcma-module-ffmpeg-service-dotnet.git"
+}

@@ -1,16 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
-        <LangVersion>default</LangVersion>
-    </PropertyGroup>
-
-    <ItemGroup>
-      <PackageReference Include="Mcma.Aws.Functions.Worker" Version="0.14.0" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\..\..\common\Mcma.Modules.FFmpegService.Worker\Mcma.Modules.FFmpegService.Worker.csproj" />
-    </ItemGroup>
-
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>default</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Mcma.Functions.Aws.Worker" Version="0.14.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\common\Mcma.Modules.FFmpegService.Worker\Mcma.Modules.FFmpegService.Worker.csproj" />
+  </ItemGroup>
 </Project>

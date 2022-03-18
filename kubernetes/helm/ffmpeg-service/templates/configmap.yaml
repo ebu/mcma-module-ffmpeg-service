@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "{{ .Values.service.name }}-env-vars"
+data:
+  MCMA_LOGGER_SOURCE: {{ .Values.service.name | quote }}
+  MCMA_PUBLIC_URL: "http://{{ .Values.service.name }}/mcma/api"
+  MCMA_SERVICES_URL: {{ .Values.servicesUrl | quote }}
+  MCMA_KAFKA_BOOTSTRAP_SERVERS: {{ .Values.kafka.bootstrapServers | quote }}
+  MCMA_KAFKA_WORKER_TOPIC: {{ .Values.kafka.workerTopic | quote }}
+  MCMA_MONGODB_CONNECTION_STRING: {{ .Values.mongoDb.connectionString | quote }}
+  MCMA_MONGODB_DATABASE_NAME: {{ .Values.mongoDb.databaseName | quote }}
+  MCMA_MONGODB_COLLECTION_NAME: {{ .Values.mongoDb.collectionName | quote }}

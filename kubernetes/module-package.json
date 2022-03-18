@@ -1,0 +1,24 @@
+{
+  "files": [
+    "**/*.tf",
+    "helm/**/*.*"
+  ],
+  "functions": [
+    {
+      "name": "ApiHandler",
+      "type": "DockerImage",
+      "path": "src/Mcma.Modules.FFmpegService.Kubernetes.ApiHandler",
+      "properties": {
+        "dockerImageId": "evanverneyfink/mcma-ffmpeg-service-api"
+      }
+    },
+    {
+      "name": "Worker",
+      "type": "DockerImage",
+      "path": "src/Mcma.Modules.FFmpegService.Kubernetes.Worker",
+      "properties": {
+        "dockerImageId": "evanverneyfink/mcma-ffmpeg-service-worker"
+      }
+    }
+  ]
+}

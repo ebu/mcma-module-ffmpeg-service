@@ -1,8 +1,8 @@
 ﻿using Amazon.Lambda.APIGatewayEvents;
 using Amazon.Lambda.Core;
-using Mcma.Aws.Functions;
-using Mcma.Aws.Functions.ApiHandler;
-using Mcma.Aws.Lambda;
+using Mcma.Functions.Aws;
+using Mcma.Functions.Aws.ApiHandler;
+using Mcma.Serialization.Aws;
 using Microsoft.Extensions.DependencyInjection;
 
 [assembly: LambdaSerializer(typeof(McmaLambdaSerializer))]

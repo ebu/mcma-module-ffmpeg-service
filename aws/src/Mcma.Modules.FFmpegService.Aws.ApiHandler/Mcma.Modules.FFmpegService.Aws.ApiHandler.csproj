@@ -1,12 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
-        <LangVersion>default</LangVersion>
-    </PropertyGroup>
-
-    <ItemGroup>
-        <PackageReference Include="Mcma.Aws.Functions.ApiHandler" Version="0.14.0" />
-    </ItemGroup>
-
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>default</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Mcma.Functions.Aws.ApiHandler" Version="0.14.1" />
+  </ItemGroup>
 </Project>

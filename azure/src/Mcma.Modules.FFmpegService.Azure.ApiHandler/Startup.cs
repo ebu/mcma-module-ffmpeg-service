@@ -1,4 +1,4 @@
-﻿using Mcma.Azure.Functions.ApiHandler;
+﻿using Mcma.Functions.Azure.ApiHandler;
 using Mcma.Modules.FFmpegService.Azure.ApiHandler;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 

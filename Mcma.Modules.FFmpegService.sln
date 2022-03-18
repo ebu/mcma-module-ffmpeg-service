@@ -19,11 +19,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "common", "common", "{503207
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mcma.Modules.FFmpegService.Worker", "common\Mcma.Modules.FFmpegService.Worker\Mcma.Modules.FFmpegService.Worker.csproj", "{BB808242-616C-4860-8F67-CE131F1EB6B6}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "generic", "generic", "{5201DF78-257B-401F-944E-BEDCDF6D89E7}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "kubernetes", "kubernetes", "{5201DF78-257B-401F-944E-BEDCDF6D89E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mcma.Modules.FFmpegService.Generic.ApiHandler", "generic\src\Mcma.Modules.FFmpegService.Generic.ApiHandler\Mcma.Modules.FFmpegService.Generic.ApiHandler.csproj", "{1D3DBEF7-25E9-48E8-A33F-D0A9C759CA3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mcma.Modules.FFmpegService.Kubernetes.ApiHandler", "kubernetes\src\Mcma.Modules.FFmpegService.Kubernetes.ApiHandler\Mcma.Modules.FFmpegService.Kubernetes.ApiHandler.csproj", "{1D3DBEF7-25E9-48E8-A33F-D0A9C759CA3F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mcma.Modules.FFmpegService.Generic.Worker", "generic\src\Mcma.Modules.FFmpegService.Generic.Worker\Mcma.Modules.FFmpegService.Generic.Worker.csproj", "{838CB6E8-9909-4890-A5A4-D9DD6601C457}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mcma.Modules.FFmpegService.Kubernetes.Worker", "kubernetes\src\Mcma.Modules.FFmpegService.Kubernetes.Worker\Mcma.Modules.FFmpegService.Kubernetes.Worker.csproj", "{838CB6E8-9909-4890-A5A4-D9DD6601C457}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,10 +1,9 @@
 ﻿using Amazon.Lambda.Core;
-using Mcma.Aws.Functions;
-using Mcma.Aws.Functions.ApiHandler;
-using Mcma.Aws.Functions.Worker;
-using Mcma.Aws.Lambda;
+using Mcma.Functions.Aws;
+using Mcma.Functions.Aws.Worker;
+using Mcma.Model.Jobs;
 using Mcma.Modules.FFmpegService.Worker;
-using Mcma.Worker;
+using Mcma.Serialization.Aws;
 using Mcma.Worker.Common;
 using Microsoft.Extensions.DependencyInjection;
 

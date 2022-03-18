@@ -2,6 +2,6 @@
 {
     public class FFmpegOptions
     {
-        public string ExecutablePath { get; set; }
+        public string ExecutablePath { get; set; } = FFmpegServiceEnvironmentVariables.ExecutablePath;
     }
 }

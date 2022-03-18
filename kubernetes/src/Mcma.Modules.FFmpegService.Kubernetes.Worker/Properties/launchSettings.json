@@ -1,0 +1,21 @@
+﻿{
+  "profiles": {
+    "Mcma.Modules.FFmpegService.Kubernetes.Worker": {
+      "commandName": "Project",
+      "environmentVariables": {
+        "DOTNET_ENVIRONMENT": "Development",
+
+        "MCMA_LOGGER_SOURCE": "ffmpeg-service",
+        "MCMA_PUBLIC_URL": "http://localhost:36360/mcma/api",
+        "MCMA_SERVICES_URL": "http://localhost:36361/mcma/api/services",
+        "MCMA_KAFKA_BOOTSTRAP_SERVERS": "localhost:9092",
+        "MCMA_KAFKA_WORKER_TOPIC": "FFmpegService.Worker",
+        "MCMA_MONGODB_CONNECTION_STRING": "mongodb://localhost:27017",
+        "MCMA_MONGODB_DATABASE_NAME": "mcma",
+        "MCMA_MONGODB_COLLECTION_NAME": "ffmpeg-service",
+        "MCMA_FFMPEG_EXECUTABLE_PATH": "C:\\Program Files\\ffmpeg\\bin\\ffmpeg.exe",
+        "MCMA_FFMPEG_OUTPUT_LOCATION": "file://C:/Users/evanv/Videos/bloomberg" 
+      }
+    }
+  }
+}

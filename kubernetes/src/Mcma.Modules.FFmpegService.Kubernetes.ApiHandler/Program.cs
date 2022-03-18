@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace Mcma.Modules.FFmpegService.Generic.ApiHandler
+namespace Mcma.Modules.FFmpegService.Kubernetes.ApiHandler
 {
     public class Program
     {
@@ -19,8 +19,7 @@ namespace Mcma.Modules.FFmpegService.Generic.ApiHandler
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
-                                              webBuilder.UseUrls("http://localhost:36360")
-                                                        .UseKestrel()
+                                              webBuilder.UseKestrel()
                                                         .UseStartup<Startup>());
     }
 }

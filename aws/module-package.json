@@ -1,9 +1,18 @@
 {
-  "functions": {
-    "api-handler": "src/Mcma.Modules.FFmpegService.Aws.ApiHandler",
-    "worker": "src/Mcma.Modules.FFmpegService.Aws.Worker"
-  },
-  "additionalFiles": [
-    "layers/ffmpeg.zip"  
+  "files": [
+    "**/*.tf",
+    "layers/ffmpeg.zip"
+  ],
+  "functions": [
+    {
+      "name": "ApiHandler",
+      "type": "AwsLambdaFunction",
+      "path": "src/Mcma.Modules.FFmpegService.Aws.ApiHandler"
+    },
+    {
+      "name": "Worker",
+      "type": "AwsLambdaFunction",
+      "path": "src/Mcma.Modules.FFmpegService.Aws.Worker"
+    }
   ]
 }

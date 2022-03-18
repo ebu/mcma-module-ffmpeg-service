@@ -1,0 +1,23 @@
+namespace: default
+servicesUrl: "http://service-registry/mcma/api/services"
+service:
+  name: ffmpeg-service
+  type: ClusterIP
+  port: 80
+  portName: api
+version: "@@Version@@"
+mongoDb:
+  connectionString: "mongodb://mongo1,mongo2"
+  databaseName: "mcma"
+  collectionName: "ffmpeg-service"
+kafka:
+  bootstrapServers: "kafka1,kafka2"
+  workerTopic: "mcma.ffmpegservice.worker"
+  cronJobStateTopic: "mcma.ffmpegservice.cronjobs.state"
+  cronJobExecutionTopicPrefix: "mcma.ffmpegservice.cronjobs.execution"
+apiHandler:
+  dockerImageId: "evanverneyfink/mcma-ffmpeg-service-api"
+  numReplicas: 1
+worker:
+  dockerImageId: "evanverneyfink/mcma-ffmpeg-service-worker"
+  numReplicas: 1

@@ -1,7 +1,7 @@
-﻿using Mcma.Azure.Functions.Worker;
+﻿using Mcma.Functions.Azure.Worker;
+using Mcma.Model.Jobs;
 using Mcma.Modules.FFmpegService.Azure.Worker;
 using Mcma.Modules.FFmpegService.Worker;
-using Mcma.Worker;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 
 [assembly: FunctionsStartup(typeof(Startup))]

@@ -1,0 +1,4 @@
+{{ $function := "worker" }}
+{{ $functionConfig := .Values.worker }}
+{{ $data := dict "serviceName" .Values.service.name "serviceFunction" $function "functionConfig" $functionConfig "version" .Values.version }}
+{{- template "mcma.deployment" $data }}

@@ -2,9 +2,11 @@
 using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Mcma.Serialization;
+using Mcma.Model;
+using Mcma.Model.Jobs;
 using Mcma.Storage;
 using Mcma.Worker;
+using Mcma.Worker.Jobs;
 using Microsoft.Extensions.Options;
 
 namespace Mcma.Modules.FFmpegService.Worker
